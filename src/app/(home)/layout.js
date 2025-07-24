@@ -12,11 +12,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body>
-        <div className="max-w-screen-lg mx-auto px-8">
+        <div className="flex flex-col h-svh">
           <Header/>
-          <div>
+          <main className="flex-1">
             {children}
-          </div>
+          </main>
           <Footer/>
         </div>
       </body>
