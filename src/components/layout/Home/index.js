@@ -1,5 +1,5 @@
 import PostCard from "@/components/PostCard";
-
+import Official from "@/components/Official";
 
 export default function Home() {
   const posts = [
@@ -65,7 +65,7 @@ export default function Home() {
     },
     {
       key: "post7",
-      profileImage: "https://picsum.photos/id/1017/100/100",
+      profileImage: "https://picsum.photos/id/1050/100/100",
       user: "user07",
       title: "React 상태 관리 뭐 쓰세요?",
       content: "Recoil, Zustand, Redux 고민 중인데 여러분의 선택은?",
@@ -104,12 +104,48 @@ export default function Home() {
       attachmentImage: "https://picsum.photos/id/110/600/400"
     }
   ];
-  return (
-    <div className="max-w-screen-lg mx-auto px-8 flex min-h-screen">
-      <section className="basis-2/3 border-r border-gray-300 p-4">
-        {posts.map(item => <PostCard key={item.key} {...item}/>)}        
-      </section>
 
+  const official = [
+    {
+      key: "official1",
+      title: "🚀 새로운 프론트엔드 프레임워크 등장!",
+      date: "2025. 7. 1",
+      thumbnail: "https://picsum.photos/id/200/120/80"
+    },
+    {
+      key: "official2",
+      title: "React 20 버전 미리보기",
+      date: "2025. 7. 2",
+      thumbnail: "https://picsum.photos/id/201/120/80"
+    },
+    {
+      key: "official3",
+      title: "개발자 채용 동향 리포트 (2025 상반기)",
+      date: "2025. 7. 3",
+      thumbnail: "https://picsum.photos/id/202/120/80"
+    },
+    {
+      key: "official4",
+      title: "UI/UX 트렌드 분석: 마이크로 인터랙션",
+      date: "2025. 7. 4",
+      thumbnail: "https://picsum.photos/id/203/120/80"
+    },
+  ];
+
+  return (
+    <div className="max-w-screen-lg mx-auto px-8 flex min-h-screen">      
+      <section className="basis-2/3 border-r border-gray-300 py-4">
+        <h2 className="sr-only">메인 페이지 추천 피드 영역</h2>
+        <div>
+          {posts.map(item => <PostCard key={item.key} {...item}/>)}        
+        </div>
+      </section>
+      <aside className="pl-8">
+        <h2 className="sr-only">메인 페이지 추천 채널 영역</h2>
+        <div className="sticky top-[133px] py-4">
+          {official.map(item => <Official key={item.key} {...item} />)}
+        </div>
+      </aside>
     </div>
   );
 }
