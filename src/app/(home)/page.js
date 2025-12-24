@@ -7,6 +7,9 @@ import { getPosts } from "@/services/post";
 export default async function Home() {
   const API_URL = process.env.API_BASE_URL;  
   
+  const notice = await getPosts(`${API_URL}posts/?_limit=5&category=공지사항`);
+  const tech = await getPosts(`${API_URL}posts/?_limit=5&category=기술`);
+  const question = await getPosts(`${API_URL}posts/?_limit=5&category=질문`);
   const daily = await getPosts(`${API_URL}posts/?_limit=5&category=일상`);
   const review = await getPosts(`${API_URL}posts/?_limit=5&category=리뷰`);
    
@@ -26,6 +29,9 @@ export default async function Home() {
         </button> */}
       </Header>
       <main className="px-4 py-8 space-y-12">
+        <MainSection title="공지사항" data={notice}/>
+        <MainSection title="기술" data={tech}/>
+        <MainSection title="질문" data={question}/>
         <MainSection title="일상" data={daily}/>
         <MainSection title="리뷰" data={review}/>
       </main>

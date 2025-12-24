@@ -9,14 +9,14 @@ export default async function List({ searchParams }) {
   const { category } = await searchParams;
   const API_URL = process.env.API_BASE_URL;  
 
-  const data = await getPosts(`${API_URL}posts/?_limit=5&category=${category}`);
-  
+  const data = await getPosts(`${API_URL}posts/?category=${category}`);
+
   return (
     <>
       <Header>        
         <BackButton/>
         <h1 className="absolute top-1/2 left-1/2 -translate-1/2 text-xl font-bold tracking-tight">
-          {category} 블로그
+          {category}
         </h1>
       </Header>
       <main className="px-4 py-8">
